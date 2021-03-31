@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let criaFilho = document.body;
+      let filho = document.createElement("h1");
+      filho.innerText = "Exercício 5.2 - JavaScript DOM";
+      filho.tagName = "h1";
+      filho.className = "title";
+      criaFilho.appendChild(filho);
+
+      let criaDiv1 = document.body;
+      let div1 = document.createElement("div");
+      div1.className = "main-content";
+      criaDiv1.appendChild(div1);
+
+      let criaDivFilha = document.querySelector(".main-content");
+      let divFilha = document.createElement("div");
+      divFilha.className = "center-content";
+      criaDivFilha.appendChild(divFilha);
+
+      let criaTagP = document.querySelector(".center-content");
+      let tagP = document.createElement("p");
+      tagP.innerText = "Manipulando DOM através do JavaScript - dia 5.2";
+      tagP.style.textAlign = "center";
+      tagP.style.textTransform = "uppercase";
+      tagP.id = "texto";
+      criaTagP.appendChild(tagP);
+
+      let criaDivLeft = document.querySelector(".main-content");
+      let divLeft = document.createElement("div");
+      divLeft.className = "left-content";
+      criaDivLeft.appendChild(divLeft);
+
+      let criaDivRight = document.querySelector(".main-content");
+      let divRight = document.createElement("div");
+      divRight.className = "right-content";
+      divRight.style.marginRight = "auto";
+      criaDivRight.appendChild(divRight);
+
+      let criaImgLeft = document.querySelector(".left-content");
+      let imgLeft = document.createElement("img");
+      imgLeft.src = "https://picsum.photos/200";
+      imgLeft.className = "small-image";
+      criaImgLeft.appendChild(imgLeft);
+
+      let criaLista = document.createElement("ul"); //primeiro crio a UL - lista não ordenada
+      divRight.appendChild(criaLista); //incluo a UL na divRight (criada 2 códigos acima)
+      let listaExtenso = ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez"]; //lista por extenso que será incluída
+      for (let i in listaExtenso) { 
+        let lista = document.createElement("li"); //cria os list-items
+        lista.innerText = listaExtenso[i]; //for in - percorre todos os itens na lista por extenso e coloca na variável lista
+        criaLista.appendChild(lista);  //inclui os list-items na UL criada
+      }
+      
+      for (let i = 1; i <= 3; i += 1) {
+        let elementH3 = document.createElement('h3');
+        elementH3.innerHTML = 'Show ' + i;        
+        div1.appendChild(elementH3);        
+      }
+
+      let elementsH3 = document.getElementsByTagName('h3');
+      for (let i = 0; i < 3; i += 1) {
+        elementsH3[i].className = 'description';
+      }
+
+      let excluiDiv = document.getElementsByClassName("left-content")[0]; //getElementByClassName retorna uma lista, por isso é necessário o índice
+      div1.removeChild(excluiDiv); //é o pai.removeChild(filho a ser removido)
+
+      let divRightContent = document.getElementsByClassName('right-content')[0];
+      divRightContent.style.marginRight='auto';
+
+      let divCenterContent = document.getElementsByClassName('center-content')[0];
+      divCenterContent.parentNode.style.backgroundColor = 'green';
+      
+      criaLista.lastChild.remove(); //remove o item 10 da UL criada acima
+      criaLista.lastChild.remove(); //depois da remoção do item 10, o item 9 passa a ser o último da lista e é removido
+
+    </script>
+  </body>
+</html>

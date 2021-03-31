@@ -1,0 +1,13 @@
+./arquivostxt.txt
+./bunch_of_things.txt
+./coresordenadas.txt
+./cores.txt
+./countries.txt
+./frutas.txt
+./nomes.txt
+./phrases2.txt
+./phrases.txt
+./skills2.txt
+./top_skills.txt
+./trybe_rename.txt
+./tudo.txt
