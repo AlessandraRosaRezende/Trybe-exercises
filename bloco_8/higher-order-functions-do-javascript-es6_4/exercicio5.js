@@ -11,7 +11,13 @@ const names = [
 
 function containsA() {
   // escreva seu código aqui
-  
+  const separaNomes = names.reduce((acc, element) => acc + element.split('').reduce((acum, elem) => {
+    if (elem === 'a' || elem === 'A') {
+      acum += 1;
+    }
+    return acum;
+  }, 0), 0);
+  return separaNomes;
 }
-
+console.log(containsA());
 assert.deepStrictEqual(containsA(), 20);
