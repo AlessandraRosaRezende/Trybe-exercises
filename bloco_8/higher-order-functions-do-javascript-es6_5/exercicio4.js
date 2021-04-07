@@ -29,11 +29,11 @@ const people = [
 ];
 
 // escreva filterPeople abaixo
-const filterPeople = (array) => array.filter(
-  ({ nationality, bornIn }) =>
-    nationality === 'Australian' && 
-    bornIn > 1900 && bornIn <= 2000,
-);	
+
+const filterPeople = (array) => array.filter((elemento) => {
+  const {nationality, bornIn} = elemento;
+  if (nationality === "Australian" && bornIn > 1900 && bornIn <= 2000) return elemento;
+})
 
 const filteredPeople = filterPeople(people);
 console.log(filteredPeople)
