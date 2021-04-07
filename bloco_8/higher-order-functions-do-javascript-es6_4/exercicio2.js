@@ -64,11 +64,22 @@ const books = [
   },
 ];
 
+// function allNames() {
+//   // escreva seu código aqui
+//   return names = books.reduce((acc, elem, indice) => {
+//     return `${acc} ${elem.author.name}${indice === books.length - 1 ? '.' : ','}`
+//   }, "Nomes:")  
+// }
+
 function allNames() {
-  // escreva seu código aqui
-  return names = books.reduce((acc, elem, indice) => {
-    return `${acc} ${elem.author.name}${indice === books.length - 1 ? '.' : ','}`
-  }, "Nomes:")  
-}
+  const variavel = books.reduce((acumulador, book, indice, array) => { //o 'array' é o books.    
+    if (indice === array.length - 1) {
+      return acumulador + `${book.author.name}. `  
+    }
+    return acumulador + `${book.author.name}, `
+  },"Nomes: ")
+  return variavel;  
+} 
 console.log(allNames());
-assert.deepStrictEqual(allNames(), 'Nomes: George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.');
+
+//assert.deepStrictEqual(allNames(), 'Nomes: George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.');

@@ -9,15 +9,22 @@ const names = [
 
 //Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula.
 
+// function containsA() {
+//   // escreva seu código aqui
+//   const separaNomes = names.reduce((acc, element) => acc + element.split('').reduce((acum, elem) => {
+//     if (elem === 'a' || elem === 'A') {
+//       acum += 1;
+//     }
+//     return acum;
+//   }, 0), 0);
+//   return separaNomes;
+// }
+
 function containsA() {
-  // escreva seu código aqui
-  const separaNomes = names.reduce((acc, element) => acc + element.split('').reduce((acum, elem) => {
-    if (elem === 'a' || elem === 'A') {
-      acum += 1;
-    }
-    return acum;
-  }, 0), 0);
-  return separaNomes;
+  return names.reduce((acumulador, elemento) => {
+    return acumulador + elemento.match(/a/gi).length;
+  }, 0)  
 }
 console.log(containsA());
-assert.deepStrictEqual(containsA(), 20);
+//console.log(containsA());
+//assert.deepStrictEqual(containsA(), 20);
