@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 function myRemoveWithoutCopy(arr, item) {
   for (let index = 0, len = arr.length; index < len; index += 1) {
     if (arr[index] === item) {
@@ -13,13 +11,16 @@ function myRemoveWithoutCopy(arr, item) {
 }
 
 // implemente seus testes aqui
-assert.strictEqual(typeof myRemoveWithoutCopy, 'function');
-assert.deepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 3), [1, 2, 4]);
-assert.notDeepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 3), [1, 2, 3, 4]);
+test('Remove elemento do array sem cópia', () => {
+  expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).toEqual([1, 2, 4]);
+  expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).not.toEqual([1, 2, 3, 4]);
+});
 
 const parametro = [5, 6, 7, 8];
-//myRemoveWithoutCopy(parametro, 5);
-//assert.strictEqual(parametro.length, 3);
-assert.deepStrictEqual(myRemoveWithoutCopy(parametro, 5), [6, 7, 8]);
+test('Verifique se o array passado por parâmetro sofreu alterações', () => {
+  expect(myRemoveWithoutCopy(parametro, 5)).toEqual([6, 7, 8]);
+});
 
-assert.deepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 5), [1, 2, 3, 4])
+test('Retorna array esperado', () => {
+  expect(myRemoveWithoutCopy([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
+});
