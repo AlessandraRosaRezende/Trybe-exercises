@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 function myRemove(arr, item) {
   let newArr = [];
   for (let index = 0; index < arr.length; index += 1) {
@@ -11,12 +9,16 @@ function myRemove(arr, item) {
 }
 
 //implemente seus testes aqui
-assert.strictEqual(typeof myRemove, 'function');
-assert.deepStrictEqual(myRemove([1, 2, 3, 4], 3), [1, 2, 4]);
-assert.notDeepStrictEqual(myRemove([1, 2, 3, 4], 3), [1, 2, 3, 4]);
+test('Remove elemento do array', () => {
+  expect(myRemove([1, 2, 3, 4], 3)).toEqual([1, 2, 4]);
+  expect(myRemove([1, 2, 3, 4], 3)).not.toEqual([1, 2, 3, 4]);
+});
 
 const parametro = [5, 6, 7, 8];
-myRemove(parametro, 5);
-assert.deepStrictEqual(parametro, [5, 6, 7, 8]);
+test('Verifique se o array passado por parâmetro não sofreu alterações', () => {
+  expect(myRemove(parametro, 5)).toEqual([6, 7, 8]);
+});
 
-assert.deepStrictEqual(myRemove([1, 2, 3, 4], 5), [1, 2, 3, 4]);
+test('Retorna array esperado', () => {
+  expect(myRemove([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
+});
