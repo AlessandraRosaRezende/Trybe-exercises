@@ -26,7 +26,7 @@ const getAnimalByAge = (age) => {
 
 describe('Testando promise - findAnimalByAge', () => {
   describe('Quando existe o animal com a idade procurada', () => {
-    test('Verifique o primeiro nome do animal no array retornado', () => {
+    test('Verifique os animais com a idade informada', () => {
       expect.assertions(1);
       const animals = [{ name: 'Preguiça', age: 5, type: 'Cat' }];
         return expect(getAnimalByAge(5)).resolves.toEqual(animals);
